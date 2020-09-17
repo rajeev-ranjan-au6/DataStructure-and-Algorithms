@@ -1,0 +1,56 @@
+*******************************************Tree in DSA************************************
+
+--> Unlike Array and Linked List, which are linear data structures, tree is hierarchical (or non-linear) data structure. One reason to use trees might be because you want to store information that naturally forms a hierarchy. 
+
+--> A tree is a widely used abstract data type that simulates a hierarchical tree structure, with a root value and subtrees of children with a parent node, represented as a set of linked nodes.
+
+********************************************Types of Tree***************************************
+
+1) Ordinary B-tree
+2) B-tree
+3) Strictly B-tree
+4) Complete B-tree
+5) Almost Complete B-tree
+6) Max heap tree
+7) Heap tree
+8) BST(Binary Search Tree)
+
+
+*****************************************Representaion Of Tree******************************
+
+1) Array Representaion
+2) Linked List Representaion
+
+*******************************Array Representaion(Advatages)*******************************
+
+1) It is better and convenient way of storing the data of same datatype with same size.
+2) It allows us to store known number of elements in it.
+3) It allocates memory in contiguous memory locations for its elements. It does not allocate any extra space/ memory for its elements. Hence there is no memory overflow or shortage of memory in arrays.
+4) Iterating the arrays using their index is faster compared to any other methods like linked list etc.
+5) It allows to store the elements in any dimensional array – supports multidimensional array.
+
+
+*******************************Array Representaion(Disadvatages)*******************************
+
+1) It allows us to enter only fixed number of elements into it. We cannot alter the size of the array once array is declared. Hence if we need to insert more number of records than declared then it is not possible. We should know array size at the compile time itself.
+
+2) Inserting and deleting the records from the array would be costly since we add / delete the elements from the array, we need to manage memory space too.
+
+3) It does not verify the indexes while compiling the array. In case there is any indexes pointed which is more than the dimension specified, then we will get run time errors rather than identifying them at compile time.
+
+*********************************************Advantages:*********************
+
+I. This representation is very easy to understand.
+II. This is the best representation for complete and full binary tree representation.
+III. Programming is very easy.
+IV. It is very easy to move from a child to its parents and vice versa.
+
+*****************************Disadvantages:**********************************
+
+I. Lot of memory area wasted.
+II. Insertion and deletion of nodes needs lot of data movement.
+III. Execution time high.
+IV. This is not suited for trees other than full and complete tree.
+4) List the advantages of linear representation and linked representation of binary tree.
+
+
