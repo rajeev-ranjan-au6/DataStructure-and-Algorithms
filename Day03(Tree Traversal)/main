@@ -1,0 +1,17 @@
+*************************Tree Traversal*******************************************
+
+--> It represent the process of visiting all the nodes of given tree, without skeeping any node or without visiting a node.
+
+--> there are 3 types of tree traversal*******************************************
+
+1) In-order traversal (LVR)
+2) Pre-order traversal (VLR)
+3) Post-order traversal (LRV)
+
+*******************************************************
+
+IMP:-->
+
+L: left
+V: Root
+R: Right
