@@ -1,51 +1,55 @@
-// C++ program for implementation of selection sort 
-#include <bits/stdc++.h> 
+// C++ implementation of Shell Sort 
+#include <iostream> 
 using namespace std; 
 
-void swap(int *xp, int *yp) 
+/* function to sort arr using shellSort */
+int shellSort(int arr[], int n) 
 { 
-	int temp = *xp; 
-	*xp = *yp; 
-	*yp = temp; 
-} 
-
-void selectionSort(int arr[], int n) 
-{ 
-	int i, j, min_idx; 
-
-	// One by one move boundary of unsorted subarray 
-	for (i = 0; i < n-1; i++) 
+	// Start with a big gap, then reduce the gap 
+	for (int gap = n/2; gap > 0; gap /= 2) 
 	{ 
-		// Find the minimum element in unsorted array 
-		min_idx = i; 
-		for (j = i+1; j < n; j++) 
-		if (arr[j] < arr[min_idx]) 
-			min_idx = j; 
+		// Do a gapped insertion sort for this gap size. 
+		// The first gap elements a[0..gap-1] are already in gapped order 
+		// keep adding one more element until the entire array is 
+		// gap sorted 
+		for (int i = gap; i < n; i += 1) 
+		{ 
+			// add a[i] to the elements that have been gap sorted 
+			// save a[i] in temp and make a hole at position i 
+			int temp = arr[i]; 
 
-		// Swap the found minimum element with the first element 
-		swap(&arr[min_idx], &arr[i]); 
+			// shift earlier gap-sorted elements up until the correct 
+			// location for a[i] is found 
+			int j;			 
+			for (j = i; j >= gap && arr[j - gap] > temp; j -= gap) 
+				arr[j] = arr[j - gap]; 
+			
+			// put temp (the original a[i]) in its correct location 
+			arr[j] = temp; 
+		} 
 	} 
-} 
-
-/* Function to print an array */
-void printArray(int arr[], int size) 
-{ 
-	int i; 
-	for (i=0; i < size; i++) 
-		cout << arr[i] << " "; 
-	cout << endl; 
-} 
-
-// Driver program to test above functions 
-int main() 
-{ 
-	int arr[] = {64, 25, 12, 22, 11}; 
-	int n = sizeof(arr)/sizeof(arr[0]); 
-	selectionSort(arr, n); 
-	cout << "Sorted array: \n"; 
-	printArray(arr, n); 
 	return 0; 
 } 
 
-// This is code is contributed by rathbhupendra 
+void printArray(int arr[], int n) 
+{ 
+	for (int i=0; i<n; i++) 
+		cout << arr[i] << " "; 
+} 
+
+int main() 
+{ 
+	int arr[] = {12, 34, 54, 2, 3}, i; 
+	int n = sizeof(arr)/sizeof(arr[0]); 
+
+	cout << "Array before sorting: \n"; 
+	printArray(arr, n); 
+
+	shellSort(arr, n); 
+
+	cout << "\nArray after sorting: \n"; 
+	printArray(arr, n); 
+
+	return 0; 
+} 
 
