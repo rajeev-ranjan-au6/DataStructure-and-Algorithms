@@ -1,45 +1,42 @@
-// C++ program for implementation of Bubble sort 
-#include <bits/stdc++.h> 
+// C++ program to sort an array using bucket sort 
+#include <algorithm> 
+#include <iostream> 
+#include <vector> 
 using namespace std; 
 
-void swap(int *xp, int *yp) 
+// Function to sort arr[] of size n using bucket sort 
+void bucketSort(float arr[], int n) 
 { 
-	int temp = *xp; 
-	*xp = *yp; 
-	*yp = temp; 
+	// 1) Create n empty buckets 
+	vector<float> b[n]; 
+
+	// 2) Put array elements in different buckets 
+	for (int i = 0; i < n; i++) { 
+		int bi = n * arr[i]; // Index in bucket 
+		b[bi].push_back(arr[i]); 
+	} 
+
+	// 3) Sort individual buckets 
+	for (int i = 0; i < n; i++) 
+		sort(b[i].begin(), b[i].end()); 
+
+	// 4) Concatenate all buckets into arr[] 
+	int index = 0; 
+	for (int i = 0; i < n; i++) 
+		for (int j = 0; j < b[i].size(); j++) 
+			arr[index++] = b[i][j]; 
 } 
 
-// A function to implement bubble sort 
-void bubbleSort(int arr[], int n) 
-{ 
-	int i, j; 
-	for (i = 0; i < n-1; i++)	 
-	
-	// Last i elements are already in place 
-	for (j = 0; j < n-i-1; j++) 
-		if (arr[j] > arr[j+1]) 
-			swap(&arr[j], &arr[j+1]); 
-} 
-
-/* Function to print an array */
-void printArray(int arr[], int size) 
-{ 
-	int i; 
-	for (i = 0; i < size; i++) 
-		cout << arr[i] << " "; 
-	cout << endl; 
-} 
-
-// Driver code 
+/* Driver program to test above function */
 int main() 
 { 
-	int arr[] = {64, 34, 25, 12, 22, 11, 90}; 
-	int n = sizeof(arr)/sizeof(arr[0]); 
-	bubbleSort(arr, n); 
-	cout<<"Sorted array: \n"; 
-	printArray(arr, n); 
+	float arr[] = { 0.897, 0.565, 0.656, 0.1234, 0.665, 0.3434 }; 
+	int n = sizeof(arr) / sizeof(arr[0]); 
+	bucketSort(arr, n); 
+
+	cout << "Sorted array is \n"; 
+	for (int i = 0; i < n; i++) 
+		cout << arr[i] << " "; 
 	return 0; 
 } 
-
-// This code is contributed by rathbhupendra 
 
