@@ -1,9 +1,3 @@
-
-edit
-play_arrow
-
-brightness_4
-// C++ program for Huffman Coding 
 #include <iostream> 
 #include <cstdlib> 
 using namespace std; 
@@ -303,4 +297,3 @@ int main()
   
     return 0; 
 } 
-
